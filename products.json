@@ -3,7 +3,7 @@
         "id":1,
         "name":"chicken-roll",
         "price":"$20",
-        "images":"images/chicken-roll.png"
+        "images":"chicken-roll.png"
     },
     {
         "id":2,
@@ -49,4 +49,5 @@
         "price":"$50",
         "images":"images/veg-biryani .png"
     }
+
 ]
