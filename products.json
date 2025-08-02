@@ -41,7 +41,7 @@
         "id":7,
         "name":"shahi thali",
         "price":"$100",
-        "images":"images/shahi thali.png"
+        "images":"shahi thali.png"
     },
     {
         "id":8,
@@ -51,4 +51,5 @@
     }
 
 ]
+
 
