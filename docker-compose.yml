@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # ==========================================
+  # PostgreSQL 17 Relational Database
+  # ==========================================
+  postgres-db:
+    image: postgres:17-alpine
+    container_name: shahizayka-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: RoyalPassword2026!
+      POSTGRES_DB: ShahiZaykaDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ShahiZaykaDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - shahizayka-network
+
+  # ==========================================
+  # ASP.NET Core 10 Clean Architecture API
+  # ==========================================
+  backend-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: shahizayka-api
+    restart: on-failure
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+      - ConnectionStrings__PostgreSql=Host=postgres-db;Port=5432;Database=ShahiZaykaDb;Username=postgres;Password=RoyalPassword2026!
+      - DatabaseProvider=PostgreSQL
+      - Jwt__SecretKey=ShahiZayka_SuperSecretKey_For_Amazon_Interview_TopTierProject_2026!
+      - Jwt__Issuer=ShahiZaykaApi
+      - Jwt__Audience=ShahiZaykaClient
+    ports:
+      - "5000:5000"
+    networks:
+      - shahizayka-network
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  shahizayka-network:
+    driver: bridge

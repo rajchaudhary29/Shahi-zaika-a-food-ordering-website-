@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShahiZayka.Api/ShahiZayka.Api.csproj" />
+    <Project Path="src/ShahiZayka.Application/ShahiZayka.Application.csproj" />
+    <Project Path="src/ShahiZayka.Domain/ShahiZayka.Domain.csproj" />
+    <Project Path="src/ShahiZayka.Infrastructure/ShahiZayka.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ShahiZayka.UnitTests/ShahiZayka.UnitTests.csproj" />
+  </Folder>
+</Solution>

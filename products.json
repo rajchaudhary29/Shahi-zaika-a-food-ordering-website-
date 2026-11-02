@@ -1,0 +1,52 @@
+ [
+    {
+        "id":1,
+        "name":"chicken-roll",
+        "price":"$20",
+        "images":"images/chicken-roll.png"
+    },
+    {
+        "id":2,
+        "name":"chicken-curry",
+        "price":"$30",
+        "images":"images/chicken curry.png"
+
+    },
+    {
+        "id":3,
+        "name":"fried-masala-chicken",
+        "price":"$50",
+        "images":"images/fried-masala-chicken.png"
+    },
+    {
+        "id":4,
+        "name":"chicken-biryani",
+        "price":"$30",
+        "images":"images/lucknow chicken-biryani.png"
+    },
+    
+    {
+        "id":5,
+        "name":"punjabi angithi",
+        "price":"$90",
+        "images":"images/punjabi angithi.png"
+    },
+    {
+        "id":6,
+        "name":"shahi panner",
+        "price":"$40",
+        "images":"images/shahi panner.png"
+    },
+    {
+        "id":7,
+        "name":"shahi thali",
+        "price":"$100",
+        "images":"images/shahi thali.png"
+    },
+    {
+        "id":8,
+        "name":"veg-biryani",
+        "price":"$50",
+        "images":"images/veg-biryani .png"
+    }
+]

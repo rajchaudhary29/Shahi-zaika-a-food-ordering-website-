@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahi Zayka - Royal Culinary Feast & Cloud Kitchen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar flex between wrapper">
+            <a href="#" class="logo">Shahi Zayaka</a>
+
+            <!-- DESKTOP-MENU -->
+            <ul class="navlist flex gap-3">
+                <li><a href="#">Home</a></li>
+                <li><a href="#menu-section">Menu</a></li>
+                <li><a href="#service-section">Service</a></li>
+                <li><a href="#reviews-section">Reviews</a></li>
+                <li><a href="#" id="nav-track-order"><i class="fa-solid fa-location-crosshairs"></i> Track Order</a></li>
+            </ul>
+
+            <!-- MOBILE-MENU -->
+            <ul class="mobile-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#menu-section">Menu</a></li>
+                <li><a href="#service-section">Service</a></li>
+                <li><a href="#reviews-section">Reviews</a></li>
+                <li><a href="#" onclick="openOrderTrackerModal()"><i class="fa-solid fa-location-crosshairs"></i> Track Order</a></li>
+                <li id="mobile-auth-container">
+                    <a href="#" class="btn">Sign in &nbsp; <i class="fa-solid fa-right-to-bracket"></i></a>
+                </li>
+            </ul>
+
+            <div class="Desktop-Action flex gap-2">
+                <a href="#" class="cart-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-value">0</span>
+                </a>
+                <div id="nav-auth-container">
+                    <a href="#" class="btn" id="open-auth-btn">
+                        Sign in &nbsp; <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </div>
+                <a href="#" class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section>
+            <div class="hero-section flex wrapper gap-4">
+                <div class="content">
+                    <h1>Enjoy Your <span>Royal Meal</span>!</h1>
+                    <p class="para">
+                        We will fill your tummy with delicious, slow-cooked royal delicacies delivered hot to your doorstep.
+                    </p>
+                    
+                    <div class="flex gap-2">
+                        <a href="#menu-section" class="btn">Order Now</a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-google-plus"></i></a>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/delivery-boy.png" alt="Fast Royal Delivery">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="service-section">
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>OUR SERVICES</h5>
+                    <h2>HOW DOES IT WORK?</h2>
+                </div>
+            </div>
+            <div class="flex text-center mt-4 gap-4 wrapper">
+                <div class="services-card">
+                    <div class="image-container">
+                        <img src="images/best-quality.png" alt="Best Quality">
+                    </div>
+                    <h3>BEST QUALITY</h3>
+                    <p>Committed to Quality, Passionate About Royal Heritage Taste.</p>
+                </div>
+                <div class="services-card">
+                    <div class="image-container">
+                        <img src="images/easy-to-order.png" alt="Easy to Order">
+                    </div>
+                    <h3>EASY TO ORDER</h3>
+                    <p>Select your favorite dishes, customize, and check out with 1 click.</p>
+                </div>
+                <div class="services-card">
+                    <div class="image-container">
+                        <img src="images/fast-delivery.png" alt="Quick Services">
+                    </div>
+                    <h3>QUICK SERVICES</h3>
+                    <p>Hot Food, On Time — Every Single Time in under 35 minutes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU SECTION -->
+        <section id="menu-section">
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>OUR MENU</h5>
+                    <h2>The Most Popular Royal Dishes</h2>
+                </div>
+
+                <!-- SEARCH & FILTER CONTROLS -->
+                <div class="menu-controls">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #888;"></i>
+                        <input type="text" id="search-dish" placeholder="Search biryani, curries, rolls...">
+                    </div>
+
+                    <div class="category-pills" id="category-pills-container">
+                        <!-- Populated dynamically by app.js -->
+                        <button class="pill-btn active">All</button>
+                    </div>
+
+                    <label class="veg-toggle">
+                        <input type="checkbox" id="veg-only-filter">
+                        <span style="color: #2e7d32;"><i class="fa-solid fa-leaf"></i> Pure Veg Only</span>
+                    </label>
+                </div>
+
+                <!-- CARDS GRID -->
+                <div class="card-list text-center flex mt-4 gap-3">
+                    <!-- Populated dynamically by app.js from ASP.NET Core API -->
+                </div>
+
+                <!-- SLIDING CART DRAWER -->
+                <div class="cart-tab">
+                    <h3>Your Royal Cart</h3>
+                    <div class="cart-list">
+                        <!-- Cart items injected here -->
+                    </div>
+                    <div class="total-container">
+                        <h4>Total:</h4>
+                        <h4 class="cart-total">$0.00</h4>
+                    </div>
+                    <div class="btn-container flex gap-2">
+                        <a href="#" class="btn close-btn">Close</a>
+                        <a href="#" class="btn" id="checkout-trigger-btn">Check Out</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS SECTION -->
+        <section id="reviews-section">
+            <div class="wrapper p-top flex gap-3">
+                <div class="image-container">
+                    <img src="images/delivery-boy-with-phone.png" alt="Happy Customer Delivery">
+                </div>
+                <div class="content">
+                    <h5>OUR REVIEWS</h5>
+                    <h2>What Our Patrons Say</h2>
+                    <div class="review-container">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="flex gap-2">
+                                        <div class="profile">
+                                            <img src="images/profile1.jpeg" alt="Albert Leo">
+                                        </div>
+                                        <div>
+                                            <h4>Albert Leo</h4>
+                                            <div class="mt-half" style="color: #ff9800;">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="para">
+                                        I’ve ordered from this place multiple times, and every single time, the experience has been outstanding. The food is always fresh, full of flavor, and clearly made with high-quality ingredients. Delivery is always hot and on time!
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="flex gap-2"> 
+                                        <div class="profile">
+                                            <img src="images/profile2.jpeg" alt="Lisa Banker">
+                                        </div>
+                                        <div>
+                                            <h4>Lisa Banker</h4>
+                                            <div class="mt-half" style="color: #ff9800;">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="para">
+                                        The Shahi Thali and Lucknowi Biryani were phenomenal! The packaging kept everything piping hot, and the flavors transported us right to royal Lucknow. Highly recommended.
+                                    </p>
+                                </div>    
+                                <div class="swiper-slide">
+                                    <div class="flex gap-2"> 
+                                        <div class="profile">
+                                            <img src="images/profile3.jpeg" alt="Elena Rostova">
+                                        </div>
+                                        <div>
+                                            <h4>Elena Rostova</h4>
+                                            <div class="mt-half" style="color: #ff9800;">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="para">
+                                        Best Indian food delivery in town. The Shahi Paneer is melt-in-the-mouth, and the customer service was extremely responsive when I made a custom delivery request.
+                                    </p>
+                                </div>    
+                            </div>
+                        </div>
+                    
+                        <div class="flex between" style="margin-top: 1rem;">
+                            <a href="#" class="arrow" id="next"><i class="fa-solid fa-arrow-left"></i></a>
+                            <a href="#" class="arrow" id="prev"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APP DOWNLOAD SECTION -->
+        <section>
+            <div class="wrapper p-top">
+                <div class="app-container flex between">
+                    <div class="image-container">
+                        <img src="images/mobile-app.png" alt="Mobile App">
+                    </div>
+                    <div class="content">
+                        <h5>OUR APPLICATION</h5>
+                        <h2>Simple Way to Order Food<br>Download Today</h2>
+                        <p class="para">
+                            Discover authentic Mughlai and royal cuisines whenever and wherever. Get real-time delivery tracking right on your phone.
+                        </p>
+                        <a href="#menu-section" class="btn">Order on Web</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section>
+            <div class="wrapper p-top">
+                <div class="text-center">
+                    <h5>OUR NEWSLETTER</h5>
+                    <h2>Subscribe to Royal Offers & Chef Specials</h2>
+                    <p class="para m-auto">
+                        Get secret royal recipes, weekly discount codes, and new menu additions directly in your inbox.
+                    </p>
+                    <label class="input-container flex">
+                        <input type="email" name="email" id="newsletter-email" placeholder="Enter your email address (e.g. foodlover@example.com)" autocomplete="off">
+                        <a href="#" class="btn" id="newsletter-submit-btn">Subscribe</a>
+                    </label>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="flex wrapper gap-4">
+                <div class="footer-wrapper">
+                    <a href="#" class="logo">Shahi Zayaka</a>
+                    <p class="mt-one-half">
+                        We will fill your tummy with delicious royal food with fast delivery.<br>
+                        Engineered with ASP.NET Core Clean Architecture & PostgreSQL.
+                    </p>
+                    <div class="flex gap-2 mt-one-half">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-whatsapp"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-google-plus"></i></a>
+                    </div> 
+                </div>
+                <ul class="footer-wrapper">
+                    <li><h4>Our Menu</h4></li>
+                    <li class="mt-one-half"><a href="#menu-section" class="footer-link">Lucknowi Biryani</a></li>
+                    <li class="mt-one-half"><a href="#menu-section" class="footer-link">Shahi Paneer</a></li>
+                    <li class="mt-one-half"><a href="#menu-section" class="footer-link">Royal Thali</a></li>
+                </ul>
+                <ul class="footer-wrapper">
+                    <li><h4>Engineering</h4></li>
+                    <li class="mt-one-half"><a href="/swagger" target="_blank" class="footer-link">Swagger OpenAPI</a></li>
+                    <li class="mt-one-half"><a href="/api/health" target="_blank" class="footer-link">Health Endpoint</a></li>
+                    <li class="mt-one-half"><a href="#" onclick="openOrderTrackerModal()" class="footer-link">Order Tracking</a></li>
+                </ul>
+                <ul class="footer-wrapper">
+                    <li><h4>Support</h4></li>
+                    <li class="mt-one-half"><a href="#" onclick="document.getElementById('auth-modal').classList.add('active')" class="footer-link">Customer Portal</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Terms & Privacy</a></li>
+                    <li class="mt-one-half"><a href="#" class="footer-link">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- MODALS: CHECKOUT, TRACKING, AUTH, ADMIN    -->
+    <!-- ========================================== -->
+
+    <!-- 1. CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-box">
+            <button class="modal-close">&times;</button>
+            <h3 style="color: var(--lead); margin-bottom: 0.5rem;"><i class="fa-solid fa-bag-shopping" style="color: var(--gold-finger);"></i> Complete Your Order</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.5rem;">Fast delivery to your home or office in 35 minutes.</p>
+
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" class="form-input" id="checkout-name" placeholder="Kaushik Sharma" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Email Address *</label>
+                        <input type="email" class="form-input" id="checkout-email" placeholder="kaushik@example.com" required>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Phone Number *</label>
+                        <input type="tel" class="form-input" id="checkout-phone" placeholder="+1 206-555-0199" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address *</label>
+                    <textarea class="form-textarea" id="checkout-address" placeholder="Flat / House No., Street, Landmark, City, Postal Code" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Special Cooking / Delivery Instructions</label>
+                    <input type="text" class="form-input" id="checkout-instructions" placeholder="e.g. Extra mint chutney, ring the doorbell">
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Payment Method</label>
+                        <select class="form-select" id="checkout-payment">
+                            <option value="2">UPI / Instant Pay</option>
+                            <option value="1">Cash on Delivery (COD)</option>
+                            <option value="3">Credit / Debit Card</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Promo Code</label>
+                        <input type="text" class="form-input" id="checkout-promo" placeholder="Try 'ROYAL10' or 'WELCOME'">
+                    </div>
+                </div>
+
+                <!-- Price Breakdown Summary -->
+                <div style="background: var(--eye-ball); padding: 1.2rem; border-radius: 1rem; margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                        <span>Subtotal:</span>
+                        <span id="checkout-subtotal" style="font-weight: 600;">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                        <span>GST / Taxes (5%):</span>
+                        <span id="checkout-tax" style="font-weight: 600;">$0.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                        <span>Delivery Fee (Free over $50):</span>
+                        <span id="checkout-delivery" style="font-weight: 600;">$5.00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; color: #2e7d32;">
+                        <span>Discount:</span>
+                        <span id="checkout-discount" style="font-weight: 600;">$0.00</span>
+                    </div>
+                    <hr style="margin: 0.6rem 0; border: none; border-top: 1px solid #ccc;">
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold;">
+                        <span>Grand Total:</span>
+                        <span id="checkout-total" style="color: var(--lead);">$0.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-full" id="place-order-btn">Confirm & Place Royal Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. LIVE ORDER TRACKER MODAL -->
+    <div class="modal-overlay" id="tracker-modal">
+        <div class="modal-box">
+            <button class="modal-close">&times;</button>
+            <h3 style="color: var(--lead);"><i class="fa-solid fa-motorcycle" style="color: var(--gold-finger);"></i> Live Order Tracking</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.2rem;">Track your royal kitchen preparation and delivery progress in real time.</p>
+
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <input type="text" class="form-input" id="tracker-input" placeholder="Enter Order Number (e.g. SZ-20261102-ABC123)">
+                <button class="btn" id="track-search-btn" style="white-space: nowrap;">Track</button>
+            </div>
+
+            <div id="tracker-results">
+                <!-- Track details injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. AUTHENTICATION MODAL -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-box" style="max-width: 480px;">
+            <button class="modal-close">&times;</button>
+
+            <!-- Tabs -->
+            <div style="display: flex; border-bottom: 2px solid #eee; margin-bottom: 1.5rem;">
+                <button class="pill-btn active" id="tab-login-btn" style="flex: 1; border-radius: 0; border: none; background: transparent; border-bottom: 3px solid var(--gold-finger);">Sign In</button>
+                <button class="pill-btn" id="tab-register-btn" style="flex: 1; border-radius: 0; border: none; background: transparent;">Create Account</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <div id="login-box">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-input" id="login-email" placeholder="customer@shahizayka.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-input" id="login-password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-full" style="margin-top: 1rem;">Sign In</button>
+                </form>
+
+                <!-- Interview Demo Quick Logins -->
+                <div class="demo-logins">
+                    <button class="btn-demo" id="demo-customer-btn"><i class="fa-solid fa-user"></i> Demo Customer</button>
+                    <button class="btn-demo" id="demo-admin-btn"><i class="fa-solid fa-crown"></i> Demo Admin</button>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-box" style="display: none;">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-input" id="reg-name" placeholder="Kaushik Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-input" id="reg-email" placeholder="kaushik@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-input" id="reg-password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-input" id="reg-phone" placeholder="+1 206-555-0100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Delivery Address</label>
+                        <input type="text" class="form-input" id="reg-address" placeholder="Seattle, WA" required>
+                    </div>
+                    <button type="submit" class="btn btn-full" style="margin-top: 1rem;">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. ADMIN DASHBOARD MODAL -->
+    <div class="modal-overlay" id="admin-modal">
+        <div class="modal-box" style="max-width: 900px;">
+            <button class="modal-close">&times;</button>
+            <h3 style="color: var(--lead); margin-bottom: 0.5rem;"><i class="fa-solid fa-crown" style="color: var(--gold-finger);"></i> Royal Admin Portal</h3>
+            <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.5rem;">Manage real-time incoming orders, fulfillment stages, and kitchen status.</p>
+
+            <div style="overflow-x: auto;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Current Status</th>
+                            <th>Update Status</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-orders-body">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SWIPER SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
