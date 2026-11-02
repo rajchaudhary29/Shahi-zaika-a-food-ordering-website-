@@ -3,10 +3,15 @@
  * Client Architecture for ASP.NET Core & PostgreSQL Integration
  */
 
-// API Configuration
-const API_BASE = window.location.port === '5000' || window.location.port === '5001'
-    ? `${window.location.origin}/api`
-    : 'http://localhost:5000/api';
+// Smart Multi-Environment API Detection (Localhost, Render All-in-One, and Vercel CDN)
+// If your Render Web Service name differs from 'shahi-zayka-api', update this URL:
+const RENDER_BACKEND_URL = 'https://shahi-zayka-api.onrender.com/api';
+
+const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : (window.location.origin.includes('onrender.com')
+        ? `${window.location.origin}/api`
+        : RENDER_BACKEND_URL);
 
 // Global Application State
 const state = {
