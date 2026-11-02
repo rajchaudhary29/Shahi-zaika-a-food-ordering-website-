@@ -5,9 +5,16 @@
 
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue.svg)](https://www.postgresql.org/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7.svg)](https://shahi-zayka-api.onrender.com)
+[![Swagger](https://img.shields.io/badge/Swagger-OpenAPI%20v1-85EA2D.svg)](https://shahi-zayka-api.onrender.com/swagger)
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20%2F%20Onion-success.svg)](#architecture)
 [![Tests](https://img.shields.io/badge/Unit%20Tests-10%20Passed-brightgreen.svg)](#automated-testing)
 [![Docker](https://img.shields.io/badge/Docker%20Compose-Ready-blue.svg)](#docker-deployment)
+
+### 🔗 Live Cloud Deployment Links
+- 🌐 **Live Full-Stack Web App**: [https://shahi-zayka-api.onrender.com](https://shahi-zayka-api.onrender.com)
+- 📚 **Interactive Swagger API Explorer**: [https://shahi-zayka-api.onrender.com/swagger](https://shahi-zayka-api.onrender.com/swagger)
+- 🩺 **System Health Probe**: [https://shahi-zayka-api.onrender.com/api/health](https://shahi-zayka-api.onrender.com/api/health)
 
 ---
 
